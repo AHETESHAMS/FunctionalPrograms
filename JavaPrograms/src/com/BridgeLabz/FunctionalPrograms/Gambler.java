@@ -16,7 +16,7 @@ public class Gambler {
 		System.out.println("Enter Goal:=");
 		
 		int goal = Utility.singleIntegerInput();
-		
+
 		int cash = stake;
 		
 		for(bet=1;bet<iterations && cash>0;bet++)

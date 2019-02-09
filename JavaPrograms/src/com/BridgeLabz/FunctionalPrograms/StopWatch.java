@@ -1,38 +1,23 @@
 package com.BridgeLabz.FunctionalPrograms;
 import java.util.*;
-public class StopWatch {
-	public static long startTimer=0; 
-	public static long stopTimer=0;
-	public void start()
+class StopWatch
+{
+	public static void main(String []args) throws InterruptedException
 	{
-		startTimer = System.currentTimeMillis();
+		Date date = new Date();
 		
-		System.out.println("Start time is:="+startTimer);
-	}
-	
-	public void stop()
-	{
-		stopTimer = System.currentTimeMillis();
+		Long start = Utility.start();
 		
-		System.out.println("Stop time is:="+stopTimer);
-	}
-	
-	public static void main(String []args)
-	{
-		StopWatch sw = new StopWatch();
+	    System.out.println("Start time:="+date.toString());
 		
-		Scanner sc =  new Scanner(System.in);
+		Thread.sleep(5000);
 		
-		System.out.println("Press 1 to start:=");
+		Long stop = Utility.stop();
 		
-		int input = sc.nextInt();
+	    System.out.println("Stop time:="+date.toString());
 		
-		if(input==1)
-		{	
-			sw.start();
+		Long time = Utility.timeEllapse(start,stop);
 		
-		}	
-		else
-		
+		System.out.print("Time ellapse:="+time);
 	}
 }

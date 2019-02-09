@@ -3,7 +3,7 @@ package com.BridgeLabz.FunctionalPrograms;
 public class SumZero {
 	public static void main(String []args)
 	{
-		int []arr = new int[]{3,5,6,7,8,-5,4,-9,8,1};
+		int []arr = new int[]{-1,5,6,7,8,-5,4,-9,8,1};
 		
 		for(int i=0;i<10;i++)
 		{
