@@ -30,6 +30,177 @@ public class Utility {
 		return (sc.next());
 	}
 	
+	/*Sarching for Integer*/
+	
+	public static void searchInteger(int []searchArray,int half,int item,int searchArrayLen)
+	{
+		 int cnt=0,i;
+		 if(searchArray[half]==item)
+		 {
+			 System.out.print("Element Found at Position "+half);
+		 }
+		 else if(item>searchArray[half])
+		 {
+			 for(i=half;i<searchArrayLen;i++)
+			 {
+				 if(searchArray[i]==item)
+				 {
+					cnt++;
+				 }
+				 
+			 }
+			 if(cnt>0)
+				 System.out.println("Item Found at Position "+i);
+			 else
+				 System.out.println("Item not Found");
+		 }
+		 else
+		 {
+			 for(i=0;i<half;i++)
+			 {
+				 if(searchArray[i]==item)
+				 {
+					cnt++;
+				 }
+				 
+			 }
+			 if(cnt>0)
+				 System.out.println("Item Found at Position "+i);
+			 else
+				 System.out.println("Item not Found");
+		 }
+	}
+	
+	/*Insertion Sort For Strings*/
+	
+	public static String[] insertionSort(String []names)
+	{
+		for (int j = 0; j < names.length; j++) 
+	    {
+			String temp=names[j];
+	    	for (int i = j - 1 ; i > 0 ; i--) 
+	    	{
+	    		if (names[i].compareTo(names[j]) < 0) 
+	    		{
+	    			String t = names[i];
+	    			names[i] = names[j];
+	    			names[j] = t;
+	    		}
+	    	}
+	      
+	    }
+		return(names);
+	}
+	
+	/*Bubble sort for strings*/
+	public static String[] bubbleSort(String []names)
+	{
+		for (int j = 0; j < names.length; j++) 
+	    {
+	    	for (int i = j + 1; i < names.length; i++) 
+	    	{
+	    		if (names[i].compareTo(names[j]) < 0) 
+	    		{
+	    			String t = names[j];
+	    			names[j] = names[i];
+	    			names[i] = t;
+	    		}
+	    	}
+	      
+	    }
+		return(names);
+	}
+	
+	/*Searching for String*/
+	public static void searchString(String []names,String element)
+	{
+		int n = names.length;
+		boolean found = false;
+		for (int i=0;i<n;i++) {
+		    if ( names[i].equals(element)) {
+		        found = true;
+		        System.out.println( "The value is found!");
+		        break;
+		    }
+		}
+		if (!found) {
+		    System.out.println( "The value is not found!" );
+		}
+	}
+	
+	/*Check String Anagrams*/
+	
+	public static boolean checkAnagrams(String str1,String str2)
+	{
+		int n1 = str1.length();
+		
+		int n2 = str2.length();
+		
+		int cnt=0;
+		
+		char[] str1Array = str1. toCharArray();
+		
+		char[] str2Array = str2. toCharArray();
+		
+		if(n1!=n2)
+			return false;
+		
+		else
+		{
+			for(int i=0;i<n1;i++)
+			{
+				for(int j=0;j<n1;j++)
+				{
+					if(str1Array[i] == str2Array[j])
+					{
+						cnt++;
+						break;
+					}
+				}
+			}
+			
+			if(cnt == n1)
+				return true;
+			else
+				return false;
+		}
+		
+	}
+	
+	/*Check Prime Number*/
+	
+	public static int checkPrime(int num)
+	{
+		int cnt=0;
+		for(int i=2;i<num;i++)
+		{
+			if(num%i==0)
+			{
+				cnt++;
+				break;
+			}	
+		}
+			return cnt;	
+	}	
+	
+	/*Checking Palindrome Number*/
+	
+	public static boolean checkPalindromeNumber(int n)
+	{
+		int rev=0,rem,original;
+		original=n;
+		while(n!=0)
+		{
+			rem = n%10;
+			rev = rev*10+rem;
+			n = n/10;
+		}
+		if(rev==original)
+			return true;
+		else
+			return false;
+	}
+	
 	/*Calculating power*/
 	
 	public static double calPower(int v,double topower)
@@ -42,23 +213,21 @@ public class Utility {
 	
 	public static Long start()
 	{
-		return(System.currentTimeMillis());
+		return(System.nanoTime());
 	}
 	
-	/*Stoping StopWatch*/
+	/*Stopping StopWatch*/
 	
 	public static Long stop()
 	{
-		return(System.currentTimeMillis());
+		return(System.nanoTime());
 	}
 
-	/*Calculatng Time Ellapse of StopWatch*/
-	
-/*Stoping StopWatch*/
+	/*Calculating Time Ellapse of StopWatch*/
 	
 	public static Long timeEllapse(Long start,Long stop)
 	{
-		return((stop-start)/1000);
+		return((stop-start));
 	}
 
 	/* Checking Leap Year */
@@ -247,5 +416,7 @@ public class Utility {
 			Utility.displayGame(game);
 		}
 	}
+
+	
 
 }
